@@ -1,9 +1,9 @@
 using UnityEngine;
-using unityEngine.InputSystem;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidboby2D rigid2D;
+    Rigidbody2D rigid2D;
     float jumpForce= 600.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
