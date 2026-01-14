@@ -1,6 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -56,5 +57,6 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("ゴール");
+        SceneManager.LoadScene("ClearScene");
     }
 }
