@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     float walkForce =300.0f;
     float maxWalkSpeed =2.0f;
     public Sprite[]walkSprites;
+    public Sprite jumpSprite;
     float time =0;
     int idx =0;
     SpriteRenderer spriteRenderer;
@@ -34,14 +36,25 @@ public class PlayerController : MonoBehaviour
         }
 
         //アニメーション
-        this.time +=Time.deltaTime;
-        if(this.time > 0.1f)
+        if (this.rigid2D.linearVelocityY !=0)
         {
-            this.time =0;
-            this.spriteRenderer.sprite =walkSprites [this.idx];
-            this.idx =1- this.idx;
+            this.spriteRenderer.sprite = this.jumpSprite;
         }
+        else
+        {
+            this.time +=Time.deltaTime;
+            if(this.time > 0.1f)
+            {
+                this.time =0;
+                this.spriteRenderer.sprite =walkSprites [this.idx];
+                this.idx =1- this.idx;
+            }
+        }       
+    }
 
-        
+    //ゴールに到着
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("ゴール");
     }
 }
