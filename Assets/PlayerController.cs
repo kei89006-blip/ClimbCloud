@@ -51,7 +51,13 @@ public class PlayerController : MonoBehaviour
                 this.spriteRenderer.sprite =walkSprites [this.idx];
                 this.idx =1- this.idx;
             }
-        }       
+        }  
+
+        //画面外に出た場合は最初から
+        if (transform.position.y < -10)
+        {
+            SceneManager.LoadScene("GameScene");
+        }   
     }
 
     //ゴールに到着
