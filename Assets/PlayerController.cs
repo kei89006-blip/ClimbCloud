@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
        //ジャンプする
-       if (Mouse.current.leftButton.wasPressedThisFrame)
+       if (Mouse.current.leftButton.wasPressedThisFrame &&
+            this.rigid2D.linearVelocityY ==0)
         {
             this.rigid2D.AddForce(transform.up*this.jumpForce);
         }
